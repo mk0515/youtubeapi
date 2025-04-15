@@ -1,58 +1,81 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
   <title>YouTube API</title>
+  <style>
+    html {
+      height: 100vh;
+    }
+
+    .inner {
+      width: fit-content;
+      margin: auto;
+    }
+
+    nav {
+      width: fit-content;
+    }
+
+    ul {
+      padding-left: 0;
+      list-style-type: none;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-  <!-- 1. ここの<div>タグがYoutubeの<iframe>に置き換わる。 -->
-  <div id="player"></div>
-  <div id="player"></div>
-  <!-- 動画が表示されている<div>の下に追加 -->
-  <nav>
-    <ul>
-      <li id="doplay">再生</li>
-      <li id="dostop">停止</li>
-      <li id="dopause">一時停止</li>
-      <li id="mute">ミュート</li>
-      <li id="do10sNext">10秒先へ</li>
-      <li id="do10sPrev">10秒戻る</li>
-      <label>ボリューム<input type="range" min="0" max="100" name="volume" id="volume" value="50" />
-        <span id="volumeNum"></span>
-      </label>
-      <li>
-        <select id="MovieId" class="ytMovie" name="ytMovie">
-          <option selected>選択してください。</option>
-          <option value="DKX3Jr4PgNY">Lilかんさい/Lil miracle</option>
-          <option value="OEI-b2T6q6E">Lilかんさい/Tell me! Tell me!</option>
-          <option value="jRVAGsFDnKs">Lilかんさい/SUPER ROCKET</option>
-          <option value="ygcws_z0Wkk">少年忍者/The Shining Star</option>
-          <option value="nOqW73higxQ">少年忍者/太陽の笑顔</option>
-          <option value="o6WRJSGVQuQ">SixTONES/WHIP THAT</option>
-          <option value="7fwYjU7m8pw">Aぇ! group/PRIDE</option>
-          <option value="CNEpot3v2nc">ALL Johnnys' Jr./Fun! Fun! Fun!</option>
-        </select>
-      </li>
-      <li>
-        <form id="doSpeed">
-          <input type="radio" id="mslow" name="speed" value="0.25" />
-          <label for="mslow">0.25</label>
-          <input type="radio" id="slow" name="speed" value="0.5" />
-          <label for="slow">0.5</label>
-          <input type="radio" id="normal" name="speed" value="1.0" checked />
-          <label for="normal">1</label>
-          <input type="radio" id="hspeed" name="speed" value="1.5" />
-          <label for="hspeed">1.5</label>
-          <input type="radio" id="mhspeed" name="speed" value="2" />
-          <label for="mhspeed">2</label>
-        </form>
-      </li>
-    </ul>
-  </nav>
+  <div class="inner">
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <!-- 1. ここの<div>タグがYoutubeの<iframe>に置き換わる。 -->
+    <div id="player"></div>
+    <div id="player"></div>
+    <!-- 動画が表示されている<div>の下に追加 -->
+    <nav>
+      <ul>
+        <li id="doplay">再生</li>
+        <li id="dostop">停止</li>
+        <li id="dopause">一時停止</li>
+        <li id="mute">ミュート</li>
+        <li id="do10sNext">10秒先へ</li>
+        <li id="do10sPrev">10秒戻る</li>
+        <label>ボリューム<input type="range" min="0" max="100" name="volume" id="volume" value="50" />
+          <span id="volumeNum"></span>
+        </label>
+        <li>
+          <select id="MovieId" class="ytMovie" name="ytMovie">
+            <option selected>選択してください。</option>
+            <option value="DKX3Jr4PgNY">Lilかんさい/Lil miracle</option>
+            <option value="OEI-b2T6q6E">Lilかんさい/Tell me! Tell me!</option>
+            <option value="jRVAGsFDnKs">Lilかんさい/SUPER ROCKET</option>
+            <option value="ygcws_z0Wkk">少年忍者/The Shining Star</option>
+            <option value="nOqW73higxQ">少年忍者/太陽の笑顔</option>
+            <option value="o6WRJSGVQuQ">SixTONES/WHIP THAT</option>
+            <option value="7fwYjU7m8pw">Aぇ! group/PRIDE</option>
+            <option value="CNEpot3v2nc">ALL Johnnys' Jr./Fun! Fun! Fun!</option>
+          </select>
+        </li>
+        <li>
+          <form id="doSpeed">
+            <input type="radio" id="mslow" name="speed" value="0.25" />
+            <label for="mslow">0.25</label>
+            <input type="radio" id="slow" name="speed" value="0.5" />
+            <label for="slow">0.5</label>
+            <input type="radio" id="normal" name="speed" value="1.0" checked />
+            <label for="normal">1</label>
+            <input type="radio" id="hspeed" name="speed" value="1.5" />
+            <label for="hspeed">1.5</label>
+            <input type="radio" id="mhspeed" name="speed" value="2" />
+            <label for="mhspeed">2</label>
+          </form>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <script>
     // 2. This code loads the IFrame Player API code asynchronously.
     // 2. 変数tagにscriptタグを作って入れる。Element=要素、Attrubute=属性
